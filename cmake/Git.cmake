@@ -25,11 +25,7 @@ FUNCTION(UPDATE_SUBMODULES)
         MESSAGE(FATAL_ERROR "You should call INIT_GIT() before UPDATE_SUBMODULES()")
     ENDIF ()
     EXECUTE_PROCESS(
-            COMMAND ${GIT_EXECUTABLE} submodule init
-            WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-    )
-    EXECUTE_PROCESS(
-            COMMAND ${GIT_EXECUTABLE} submodule update
+            COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive
             WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
     )
 ENDFUNCTION()
